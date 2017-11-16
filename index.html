@@ -9,14 +9,21 @@
     
     <body>
         
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>Actors Gallery</h1>
+            </div>
+        </div>
+        
+        
       <div ng-controller="actorCtrl">
 
-            <input type="text" class="form-control" ng-model="query.lastName">
+           
             
-            <button ng-click="sortBy()" type="button" class="btn btn-primary">Sort by Last Name</button>
+            
             
             <div class="container ">
-                
+                    <h3>Search<input type="text"  ng-model="query.lastName"><button ng-click="sortBy()" type="button" class="btn btn-primary">Sort by Last Name</button></h3>    
             
                 <div ng-repeat="actor in actors | filter:query | orderBy:orderProp" class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
          
