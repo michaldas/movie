@@ -5,6 +5,8 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="movieApp.js"></script>
       <script src="actorCtrl.js"></script>
+      <script src="movieDirective.js"></script>
+      <script src="moviesCtrl.js"></script>
     </head>
     
     <body>
@@ -24,10 +26,22 @@
                 <div ng-repeat="actor in actors | filter:query | orderBy:orderProp" class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
          
                       <h1>{{actor.firstName}} {{actor.lastName}}</h1>
-                      <a ng-href={{actor.link}} target="_blank"><img ng-src={{actor.image}}/><a>
+                      <a ng-href={{actor.link}} target="_blank"><img ng-src={{actor.image}}></a>
                 </div>
 
            </div>   
+      </div>
+
+      <div class="movies" ng-controller="moviesCtrl">
+          <h1> Top 10 movies </h1>
+          <my-movie ng-repeat="movie in movies"></my-movie>
+         <!--<div class="movie_list" ng-repeat="movie in movies">
+                <h1>{{movie.name}}</h1><br>
+                <h3>{{movie.director}}{{movie.leng}}</h3><br>
+                <h2>{{movie.actors}}</h2>
+            </div>-->
+    
+
       </div>
     </body>
     
