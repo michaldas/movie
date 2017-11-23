@@ -3,6 +3,7 @@
     <head>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
       <script src="movieApp.js"></script>
       <script src="actorCtrl.js"></script>
       <script src="movieDirective.js"></script>
@@ -13,39 +14,19 @@
     </head>
     
     <body>
-        
-        <div class="jumbotron text-center">
-            <div class="container">
-                <h1>Actors Gallery</h1>
-            </div>
-        </div>
-        
-        
-      <div ng-controller="actorCtrl">
-            
-            <div class="container ">
-                    <h3>Search<input type="text"  ng-model="query.lastName"><button ng-click="sortBy()" type="button" class="btn btn-primary">Sort by Last Name</button></h3>    
-            
-                <div ng-repeat="actor in actors | filter:query | orderBy:orderProp" class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
-         
-                      <h1>{{actor.firstName}} {{actor.lastName}}</h1>
-                      <a ng-href={{actor.link}} target="_blank"><img ng-src={{actor.image}}></a>
-                </div>
-
-           </div>   
-      </div>
-
-      <div class="movies" ng-controller="moviesCtrl">
-          <h1> Top 10 movies </h1>
-          <my-movie ng-repeat="movie in movies"></my-movie>
-         <!--<div class="movie_list" ng-repeat="movie in movies">
-                <h1>{{movie.name}}</h1><br>
-                <h3>{{movie.director}}{{movie.leng}}</h3><br>
-                <h2>{{movie.actors}}</h2>
-            </div>-->
-    
-
-      </div>
+            <nav class="navbar navbar-inverse">
+                    <a class="navbar-brand" href="#">Title</a>
+                    <ul class="nav navbar-nav">
+                      <li>
+                        <a href="#!/">Actors</a>
+                      </li>
+                      <li>
+                        <a href="#!/movies">Movies</a>
+                      </li>
+                    </ul>
+                  </nav>  
+     <ng-view></ng-view>
+ 
     </body>
     
     </html>

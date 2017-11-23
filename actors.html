@@ -1,0 +1,21 @@
+
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>Actors Gallery</h1>
+            </div>
+        </div>
+        
+        
+      <div ng-controller="actorCtrl">
+            
+            <div class="container ">
+                    <h3>Search<input type="text"  ng-model="query.lastName"><button ng-click="sortBy()" type="button" class="btn btn-primary">Sort by Last Name</button></h3>    
+            
+                <div ng-repeat="actor in actors | filter:query | orderBy:orderProp" class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
+         
+                      <h1>{{actor.firstName}} {{actor.lastName}}</h1>
+                      <a ng-href={{actor.link}} target="_blank"><img ng-src={{actor.image}}></a>
+                </div>
+
+           </div>   
+      </div>
